@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Weather Dashboard</h1>
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <input type="submit" value="Search">
+    </form>
+    {% if weather %}
+        <div class="weather-info">
+            <h2>{{ weather.city }}</h2>
+            <p>{{ weather.description }}</p>
+            <p>Temperature: {{ weather.temperature }} °C</p>
+            <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Weather icon">
+        </div>
+    {% endif %}
+{% endblock %}
